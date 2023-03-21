@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block title %}
+Fitness - Dasturlar
+{% endblock %}
+
+
+
+{% block content %}
+<section class="container mt-5">
+    <h3 class="text-center">Fitness Dasturlar</h3>
+    <div class="row  d-flex justify-content-center mt-4">
+        {% if programms%}
+            {% for programm in programms %}
+            <div class="col-10 col-md-10 my-3 border-dark border border-1">
+                <a href="{% url 'programm_detail' programm.slug %}">
+                  <div class="row">
+                    <div class="col-12 col-lg-3 p-0">
+                        <img src="/media/{{ programm.picture }}" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-12 col-lg-9">
+                        <p class=" text-center mt-4">
+                            {{ programm.title }}
+                        </p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+        <h4><img src="{% static 'images/img.png'%}" class="w-50" alt=""></h4>
+        {% endif%}
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,60 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-0 navbar-dark">
+    <div class="container">
+      <div class="d-lg-none mt-3">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'images/logo.jpg' %}" alt="Logo brand">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-lg-flex justify-content-lg-evenly" id="navbarNav">
+
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link {{ home }}" aria-current="page" href="{% url 'home' %}">Bosh sahifa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ prog }}" href="{% url 'programms' %}">Dasturlar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ article }}" href="{% url 'articles' %}">Maqolalar</a>
+          </li>
+        </ul>
+        <div class="d-none d-lg-block">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo brand">
+          </a>
+        </div>
+        <ul class="navbar-nav align-items-lg-center">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link {{ favorite }}" href="{% url 'favorite' %}">Sevimli</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Chiqish</a>
+          </li>
+          <li class="nav-item ms-lg-4">
+            <a class="user_img_a" href="{% url 'profile' %}">
+              {% if user.avatar %}
+              <img class="user_img" src="{{ user.avatar.url }}" alt="{{ user.first_name }}">
+              {% else %}
+              <img class="user_img" src="https://fogsoft.com/wp-content/uploads/2017/07/user-logo.png" alt="">
+              {% endif %}
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link {{ register }}" href="{% url 'register' %}">Ro`yxatdan o`tish</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ login }}" href="{% url 'login' %}">Kirish</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
