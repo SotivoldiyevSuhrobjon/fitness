@@ -15,7 +15,7 @@ class FitnessProgramm(models.Model):
     CHOICES_1 = (
         ('Pas daraja', 'Pas daraja'),
         ('Vashee qiyin daraja', 'Vashee qiyin daraja'),
-        ('O`rtancha daraja', 'O`rtancha daraja'),
+        ('O\'rtancha daraja', 'O\'rtancha daraja'),
         ('Kotta daraja', 'Kotta daraja'),
     )
     CHOICES_2 = (
@@ -27,8 +27,8 @@ class FitnessProgramm(models.Model):
         ('Erkak', 'Erkak'),
     )
     CHOICES_4 = (
-        ('Qo`l', 'Qo`l'),
-        ('Ko`krak', 'Ko`krak'),
+        ('Qo\'l', 'Qo\'l'),
+        ('Ko\'krak', 'Ko\'krak'),
         ('Bel', 'Bel'),
         ('Qorin', 'Qorin'),
         ('Oyoq', 'Oyoq'),
@@ -41,11 +41,11 @@ class FitnessProgramm(models.Model):
     intensity = models.CharField(max_length=255, choices=CHOICES_1, blank=True, null=True)
     type = models.CharField(max_length=100, choices=CHOICES_2, blank=True, null=True)
     gender = models.CharField(max_length=50, choices=CHOICES_3, blank=True, null=True)
-    part_of_body = models.CharField(max_length=100, choices=CHOICES_4, blank=True, null=True,)
+    part_of_body = models.CharField(max_length=100, choices=CHOICES_4, blank=True, null=True, )
 
     def __str__(self):
         return self.title
-    
+
 
 class Article(models.Model):
     slug = models.SlugField()
@@ -76,9 +76,6 @@ class SiteInfo(models.Model):
     wh_link = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     tel = models.CharField(max_length=255)
-    about = models.TextField()
 
     def __str__(self):
         return '{} - {}'.format(self.email, self.tel)
-
-

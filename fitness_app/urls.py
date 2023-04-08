@@ -1,6 +1,5 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
-
 
 urlpatterns = [
     path('', views.home_page, name="home"),
@@ -15,4 +14,5 @@ urlpatterns = [
     path('reset_password/', views.reset_password_page, name="reset_password"),
     path('check_like/', views.check_like, name="check_like"),
     path('favorite/', views.favorite_page, name="favorite"),
+    path('search_program/', views.search_programm, name="search_programm"),
 ]

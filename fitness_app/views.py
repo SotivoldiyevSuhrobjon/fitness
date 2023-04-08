@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import *
 from django.core.files.storage import default_storage
+from django.core import serializers
 
 
 def home_page(request):
@@ -180,7 +181,15 @@ def favorite_page(request):
     return render(request, 'favorite.html', context)
 
 
+def search_programm(request):
+    data = request.GET
+    new_data = []
+    for i in data:
+        new_data.append(str(data[i].strip()))
 
+    # programms = FitnessProgramm.objects.filter(intensity=new_data[0], type=new_data[1], gender=new_data[2], part_of_body=new_data[3])
+    programms = FitnessProgramm.objects.filter(intensity=new_data[0]).filter(type=new_data[1]).filter(
+        gender=new_data[2]).filter(part_of_body=new_data[3])
 
-
-
+    data = serializers.serialize('json', programms)
+    return HttpResponse(data, content_type="application/json")

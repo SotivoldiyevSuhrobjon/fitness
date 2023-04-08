@@ -1,3 +1,4 @@
+
 const chat = document.getElementById('chat')
 const chat_exit = document.getElementById('chat_exit')
 const chat_submit = document.getElementById('chat_submit')
@@ -32,22 +33,22 @@ function createBtnFirst() {
     messageBtn.innerHTML = `
         <div class='response'>
             <div class="message first_btn cursor">
-                Низкая интенсивность
+                Pas daraja
             </div>
         </div>
         <div class='response'>
             <div class="message first_btn cursor">
-                Умеренная интенсивность
+                Vashee qiyin daraja
             </div>
         </div>
         <div class='response'>
             <div class="message first_btn cursor">
-                Средняя интенсивность
+                O'rtancha daraja
             </div>
         </div>
         <div class='response'>
             <div class="message first_btn cursor">
-                Большая интенсивность
+                Kotta daraja
             </div>
         </div>`
     chat_body.appendChild(messageBtn)
@@ -57,12 +58,12 @@ function createBtnTwo() {
     messageBtn.innerHTML = `
         <div class='response'>
             <div class="message two_btn cursor">
-                Для набора мышечной массы
+                Kachka
             </div>
         </div>
         <div class='response'>
             <div class="message two_btn cursor">
-                Для похудения
+                Ozish
             </div>
         </div>`
     chat_body.appendChild(messageBtn)
@@ -72,12 +73,12 @@ function createBtnTree() {
     messageBtn.innerHTML = `
         <div class='response'>
             <div class="message three_btn cursor">
-            Женщина
+            Ayol
             </div>
         </div>
         <div class='response'>
             <div class="message three_btn cursor">
-            Мужчина
+            Erkak
             </div>
         </div>`
     chat_body.appendChild(messageBtn)
@@ -87,32 +88,27 @@ function createBtnFour() {
     messageBtn.innerHTML = `
         <div class='response'>
             <div class="message four_btn cursor">
-            Руки
+            Qo'l
             </div>
         </div>
         <div class='response'>
             <div class="message four_btn cursor">
-            Грудь
+            Ko'krak
             </div>
         </div>
         <div class='response'>
             <div class="message four_btn cursor">
-            Спина
+            Bel
             </div>
         </div>
         <div class='response'>
             <div class="message four_btn cursor">
-            Живот
+            Qorin
             </div>
         </div>
         <div class='response'>
             <div class="message four_btn cursor">
-            Ягодицы
-            </div>
-        </div>
-        <div class='response'>
-            <div class="message four_btn cursor">
-            Ноги
+            Oyoq
             </div>
         </div>
         `
@@ -123,7 +119,7 @@ function createBtnFive() {
     messageBtn.innerHTML = `
         <div class='response'>
             <div class="message five_btn cursor">
-            Спасибо! Хочу попробовать ещё!
+            Raxmat! Yana takrorlashni xoxlayman!
             </div>
         </div>`
     chat_body.appendChild(messageBtn)
@@ -135,7 +131,7 @@ chat_submit.addEventListener('click', () => {
         chat_body.innerHTML = `
         <div class="request">
             <div class="message">
-                Здравствуйте! Какую тренировку вы хотите подобрать?
+                Assalomu Aleykum. Qaysi dasturni tanlaysiz?
             </div>
         </div>`
     }, 500)
@@ -149,7 +145,7 @@ chat_body.addEventListener('click', (e) => {
     // console.log(thIs);
     if (e.target.classList.contains("first_btn")) {
         // 2-request
-        let text = `Вы выбрали "${e.target.innerHTML}". Какой тип тренировки вы хотите выбрать?`
+        let text = `Siz "${e.target.innerHTML}" ni tanladingiz. Qanday dastur turini tanlaysiz?`
         requestFunc(text)
         createBtnTwo()
         chat_body.scrollTop = chat_body.scrollHeight
@@ -157,7 +153,7 @@ chat_body.addEventListener('click', (e) => {
     }
     else if (e.target.classList.contains("two_btn")) {
         // 3-request
-        let text = `Вы выбрали тип тренировки "${e.target.innerHTML}". Пожалуйста, укажите пол.`
+        let text = `Siz "${e.target.innerHTML}" tanladingiz. Iltimos jinsingizni tanlang.`
         requestFunc(text)
         createBtnTree()
         chat_body.scrollTop = chat_body.scrollHeight
@@ -165,7 +161,7 @@ chat_body.addEventListener('click', (e) => {
     }
     else if (e.target.classList.contains("three_btn")) {
         // 4-request
-        let text = `Какую область тела вы хотите проработать?`
+        let text = `Qaysi tana qismini tanlaysiz?`
         requestFunc(text)
         createBtnFour()
         user_selected.push(e.target.innerHTML)
@@ -173,8 +169,8 @@ chat_body.addEventListener('click', (e) => {
     }
     else if (e.target.classList.contains("four_btn")) {
         // 5-request
-        let text = `Вы выбрали группу мышц "${e.target.innerHTML}".
-        Рассмотрите следующие варианты тренировок:`
+        let text = `Siz "${e.target.innerHTML}" tanladingiz.
+        Keyingi variantlarni kurib chiqing:`
         user_selected.push(e.target.innerHTML)
         requestFunc(text)
         ajaxRequest(user_selected);
@@ -191,7 +187,7 @@ chat_body.addEventListener('click', (e) => {
     }
     else if (e.target.classList.contains("five_btn")) {
         // 4-request
-        let text = `Какую тренировку вы хотите подобрать?`
+        let text = `Qaysi dasturni tanladingiz?`
         requestFunc(text)
         createBtnFour()
         chat_body.scrollTop = chat_body.scrollHeight

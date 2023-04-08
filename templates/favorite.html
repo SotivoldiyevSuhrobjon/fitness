@@ -1,15 +1,17 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
+
 
 {% block title %}
-Fitness - Sevimli
+Fitness - {% trans 'Sevimli' %}
 {% endblock  %}
 
 
 {% block content %}
 
 <section class="container mt-5">
-    <h3 class="text-center">Bu erda sizga yoqgan dasturlar va maqolalar saqlanadi!</h3>
+    <h3 class="text-center">{% trans 'Bu erda sizga yoqgan dasturlar va maqolalar saqlanadi!' %}</h3>
     <div class="row justify-content-center mt-4 text-center">
         {% if favorites%}
             {% for favorite in favorites %}

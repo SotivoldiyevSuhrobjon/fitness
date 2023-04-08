@@ -97,10 +97,10 @@
     color: #fff !important;
 }
 .active{
-    color: #a3fa61 !important;
+    color: blue !important;
 }
 .nav-link:hover{
-    color: #a3fa61 !important;
+    color: blue !important;
 }
 .circle_number{
     width: 70px;
@@ -122,7 +122,7 @@ a:hover{
     color: #000;
 }
 .heart{
-    color: #a3fa61;
+    color: red;
 }
 .response{
     display: flex;

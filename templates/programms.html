@@ -1,16 +1,17 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load i18n %}
 
 
 {% block title %}
-Fitness - Dasturlar
+Fitness - {%trans 'Dasturlar'%}
 {% endblock %}
 
 
 
 {% block content %}
 <section class="container mt-5">
-    <h3 class="text-center">Fitness Dasturlar</h3>
+    <h3 class="text-center">Fitness {%trans 'Dasturlar'%}</h3>
     <div class="row  d-flex justify-content-center mt-4">
         {% if programms%}
             {% for programm in programms %}
